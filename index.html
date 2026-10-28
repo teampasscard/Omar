@@ -1,0 +1,146 @@
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>عمرو عصام هاشم محمد</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=Cairo:wght@400;700;900&family=Changa:wght@400;700&family=Lateef:wght@400;700&family=Mada:wght@400;700&family=Marhey:wght@400;700&family=Reem+Kufi:wght@400;700&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #000;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      background: #000;
+      color: #fff;
+      font-family: Cairo, sans-serif;
+      overflow-x: hidden;
+    }
+
+    main {
+      width: min(100%, 760px);
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 28px 20px 42px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(24px, 5vh, 44px);
+    }
+
+    .portrait-wrap {
+      width: min(72vw, 360px);
+      height: min(56svh, 640px);
+      overflow: hidden;
+      border-radius: 24px;
+      background: #101010;
+      border: 1px solid #333;
+      box-shadow: 0 18px 70px #ffffff12;
+      animation: portraitIn 1s ease both;
+    }
+
+    .portrait {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    h1 {
+      width: 100%;
+      margin: 0;
+      text-align: center;
+      line-height: 1.65;
+      font-size: clamp(2rem, 7vw, 4.2rem);
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 0 28px #ffffff29;
+      animation: nameFloat 3.2s ease-in-out infinite;
+    }
+
+    @keyframes nameFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    @keyframes portraitIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      main { gap: 28px; padding: 22px 18px 34px; }
+      .portrait-wrap {
+        width: min(70vw, 300px);
+        height: 48svh;
+        border-radius: 20px;
+      }
+      h1 { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="portrait-wrap">
+      <img
+        class="portrait"
+        src="omar.png"
+        alt="صورة عمرو عصام هاشم محمد"
+      >
+    </div>
+
+    <h1 id="name">عمرو عصام هاشم محمد</h1>
+  </main>
+
+  <script>
+    const name = document.getElementById('name');
+
+    const fonts = [
+      'Cairo, sans-serif',
+      'Tajawal, sans-serif',
+      'Amiri, serif',
+      'Aref Ruqaa, serif',
+      'Changa, sans-serif',
+      'Mada, sans-serif',
+      'Reem Kufi, sans-serif',
+      'Lateef, serif',
+      'Marhey, sans-serif'
+    ];
+
+    let current = 0;
+
+    setInterval(() => {
+      current = (current + 1) % fonts.length;
+      name.style.fontFamily = fonts[current];
+    }, 1700);
+  </script>
+</body>
+</html>
